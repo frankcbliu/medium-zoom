@@ -244,8 +244,11 @@ const mediumZoom = (selector, options = {}) => {
         : zoomTarget.naturalHeight || viewportHeight
       const { top, left, width, height } = zoomTarget.getBoundingClientRect()
 
-      const scaleX = Math.min(naturalWidth, viewportWidth) / width
-      const scaleY = Math.min(naturalHeight, viewportHeight) / height
+      // 缩放比例修改为屏幕宽度的 80%
+      const scaleX = (0.8 * viewportWidth) / width
+      // const scaleX = Math.min(naturalWidth, viewportWidth) / width
+      const scaleY = (0.8 * viewportHeight) / height
+      // const scaleY = Math.min(naturalHeight, viewportHeight) / height
       const scale = Math.min(scaleX, scaleY)
       const translateX =
         (-left +
