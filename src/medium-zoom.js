@@ -1,6 +1,6 @@
 import {
   isNode,
-  isSvg,
+  // isSvg,
   getImagesFromSelector,
   createOverlay,
   cloneTarget,
@@ -236,18 +236,18 @@ const mediumZoom = (selector, options = {}) => {
         viewportHeight || container.height - zoomOptions.margin * 2
 
       const zoomTarget = active.zoomedHd || active.original
-      const naturalWidth = isSvg(zoomTarget)
-        ? viewportWidth
-        : zoomTarget.naturalWidth || viewportWidth
-      const naturalHeight = isSvg(zoomTarget)
-        ? viewportHeight
-        : zoomTarget.naturalHeight || viewportHeight
+      // const naturalWidth = isSvg(zoomTarget)
+      //   ? viewportWidth
+      //   : zoomTarget.naturalWidth || viewportWidth
+      // const naturalHeight = isSvg(zoomTarget)
+      //   ? viewportHeight
+      //   : zoomTarget.naturalHeight || viewportHeight
       const { top, left, width, height } = zoomTarget.getBoundingClientRect()
 
       // 缩放比例修改为屏幕宽度的 80%
       const scaleX = (0.8 * viewportWidth) / width
       // const scaleX = Math.min(naturalWidth, viewportWidth) / width
-      const scaleY = (0.8 * viewportHeight) / height
+      const scaleY = (1.0 * viewportHeight) / height
       // const scaleY = Math.min(naturalHeight, viewportHeight) / height
       const scale = Math.min(scaleX, scaleY)
       const translateX =
